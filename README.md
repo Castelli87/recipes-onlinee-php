@@ -49,5 +49,11 @@ Contributions are welcome! If you'd like to contribute to the project, please fo
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+## License
 
+This project is licensed under the MIT License.
+
+Feel free to reach out to us if you have any questions or feedback via the contact section at [personal Web Site](https://davidecastelli.netlify.app)
+. Happy coding!
+
+Project maintained by [Davide Castelli](https://davidecastelli.netlify.app/).
