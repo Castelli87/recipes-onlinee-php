@@ -1,9 +1,12 @@
 <?php
- $submit = isset($_POST['submit']);
- $user= $_POST['username'];
- $name= $_POST['recipeName'];
- $ingridients= $_POST['ingridients'];
- $process= $_POST['process'];
+// if (isset($_POST['submit'])){
+//     if
+//      $user= $_POST['username'];
+//      $name= $_POST['recipeName'];
+//      $ingridients= $_POST['ingridients'];
+//      $process= $_POST['process'];
+//      echo $user ;
+// };
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +38,11 @@
 </div>
 <?php 
 
-echo $submit;
-echo $user;
-echo $name;
-echo $ingridients;
-echo $process;
+// echo $submit;
+// echo $user;
+// echo $name;
+// echo $ingridients;
+// echo $process;
 ?>
 <?php include("templates/footer.php") ?>
 
