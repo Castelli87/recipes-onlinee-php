@@ -23,28 +23,31 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="en">
-<h1 class=" text-center p-3 m-3">Hello World this is a Recipes online book</h1>
 
 <?php include('templates/navbar.php') ?>
 
 <section class="">
     <div class="row m-4">
-        <?php foreach ($recipes as $recipe) { ?>
+        <?php foreach ($recipes as $recipe) : ?>
             <div class="col-sm-6 mb-3 mb-sm-0 ">
                 <div class="card h-100">
-                    <div class="card-header"><?php echo $recipe['name'] ?></div>
+                    <div class="card-header"><?php echo htmlspecialchars($recipe['name']) ?></div>
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $recipe['chef'] ?></h5>
-                        <p class="card-text"><?php echo $recipe['ingridents'] ?></p>
+                        <h5 class="card-title"><?php echo htmlspecialchars($recipe['chef']) ?></h5>
+                        <!-- <p class="card-text"><?php echo htmlspecialchars( $recipe['ingridents'] )?></p> -->
+                        <ul>
+                            <?php foreach (explode(',', $recipe['ingridents']) as $ing) : ; ?>
+                                <li><?php echo htmlspecialchars($ing) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
                     </div>
                     <div class='m-3 text-end'>
                         <a href="#" class="btn btn-primary">More Info</a>
-
                     </div>
 
                 </div>
             </div>
-        <?php } ?>
+        <?php endforeach; ?>
     </div>
 </section>
 

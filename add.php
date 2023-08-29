@@ -46,28 +46,28 @@ if (isset($_POST['submit'])) {
     <form class="" action="add.php" method="post" class=" d-flex flex-column mx-auto ">
         <div class="m-4 d-flex flex-column">
             <label>Chef Creator:</label>
-            <input type='text' name="username" value="<?php echo htmlentities($user)?>"> </input>
+            <input type='text' name="username" value="<?php echo htmlspecialchars($user)?>"> </input>
             <div class="text-danger">
                 <?php echo $userErr ?>
             </div>
         </div>
         <div class="m-4 d-flex flex-column">
             <label>Recipe Name:</label>
-            <input type='text' name="recipeName" value="<?php echo htmlentities($recipe)?>"> </input>
+            <input type='text' name="recipeName" value="<?php echo htmlspecialchars($recipe)?>"> </input>
             <div class="text-danger">
                 <?php echo $recipeErr ?>
             </div>
         </div>
         <div class="m-4 d-flex flex-column">
             <label>Ingridients:</label>
-            <input type='text' name="ingridients" value="<?php echo htmlentities($ingridients) ?>"></input>
+            <input type='text' name="ingridients" value="<?php echo htmlspecialchars($ingridients) ?>"></input>
             <div class="text-danger">
                 <?php echo $ingridientsErr ?>
             </div>
         </div>
         <div class="m-4 d-flex flex-column">
             <label>Process:</label>
-            <textarea name="process"> <?php echo htmlentities($process)?> </textarea>
+            <textarea name="process"> <?php echo htmlspecialchars($process)?> </textarea>
             <div class="text-danger">
                 <?php echo $processErr ?>
             </div>
