@@ -13,24 +13,11 @@ $result = mysqli_query($conn, $query);
 //fecth all in at once and create an associate array 
 $recipes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-// if ($result) {
-//     while ($row = mysqli_fetch_assoc($result)) {
-//         echo "Recipe Name: " . $row['name'] . "<br>";
-//         echo "Chef: " . $row['chef'] . "<br>";
-//         echo "Ingredients: " . $row['ingridents'] . "<br><br>";
-//     }
-// } else {
-//     echo 'Query error: ' . mysqli_error($conn);
-// }
-
-//store the result in an associate array 
-// $recipes = mysqli_fetch_assoc($result);
 //clean the data 
 mysqli_free_result($result);
+
 //close the connection 
 mysqli_close($conn);
-
-print_r($recipes)
 
 ?>
 
