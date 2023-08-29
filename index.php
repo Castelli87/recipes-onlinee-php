@@ -37,7 +37,7 @@ mysqli_close($conn);
                         <h5 class="card-title"><?php echo $recipe['chef'] ?></h5>
                         <p class="card-text"><?php echo $recipe['ingridents'] ?></p>
                     </div>
-                    <div class="card-footer bg-white">
+                    <div class='m-3 text-end'>
                         <a href="#" class="btn btn-primary">More Info</a>
 
                     </div>
