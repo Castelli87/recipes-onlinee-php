@@ -1,61 +1,57 @@
 <?php
-include('config/connection.php') ;
+include('config/connection.php');
 
 // $userErr = $recipeErr = $ingridientsErr= $processErr = '';
 
-$user =$recipe = $ingridients =$process = '';
-$errors = array('user' => '', 'recipe' => '', 'ingridients' => '','process'=>'');
+$user = $recipe = $ingridients = $process = '';
+$errors = array('user' => '', 'recipe' => '', 'ingridients' => '', 'process' => '');
 
 if (isset($_POST['submit'])) {
 
-if (empty($_POST['username'])) {
-$errors['user'] = "You need enter a username please";
-} else {
-$user = $_POST['username'];
-
-}
-
-if (empty($_POST['recipeName'])) {
-$errors['recipe']= "You need enter a Name of the recipe please";
-} else {
-$recipe = $_POST['recipeName'];
-
-}
-
-if (empty($_POST['ingridients'])) {
-$errors['ingridients']= "You need enter a list of ingridients separate by comma";
-} else {
-$ingridients = $_POST['ingridients'];
-
-}
-
-if (empty($_POST['process'])) {
-$errors['process']= "You need enter the process to make this recipe";
-} else {
-$process = $_POST['process'];
-}
-
-
-if (array_filter($errors)){
-    echo 'Problemssss';
-}else{
-    
-    //check if there is a malicious attack from the user 
-    $user = mysqli_real_escape_string($conn,$_POST['username']);
-    $recipe = mysqli_real_escape_string($conn,$_POST['recipeName']);
-    $ingridients = mysqli_real_escape_string($conn,$_POST['ingridients']);
-    $process = mysqli_real_escape_string($conn,$_POST['process']);
-
-    //create an sql query
-    $query = "INSERT INTO recipes(chef,name,ingridents,process) VALUES ('$user','$recipe','$ingridients','$process')";
-
-    if (mysqli_query($conn, $query)){
-        header('Location: index.php');
-    }else{
-        echo 'query error'. mysqli_error($conn);
+    if (empty($_POST['username'])) {
+        $errors['user'] = "You need enter a username please";
+    } else {
+        $user = $_POST['username'];
     }
 
-}
+    if (empty($_POST['recipeName'])) {
+        $errors['recipe'] = "You need enter a Name of the recipe please";
+    } else {
+        $recipe = $_POST['recipeName'];
+    }
+
+    if (empty($_POST['ingridients'])) {
+        $errors['ingridients'] = "You need enter a list of ingridients separate by comma";
+    } else {
+        $ingridients = $_POST['ingridients'];
+    }
+
+    if (empty($_POST['process'])) {
+        $errors['process'] = "You need enter the process to make this recipe";
+    } else {
+        $process = $_POST['process'];
+    }
+
+
+    if (array_filter($errors)) {
+        echo 'Problemssss';
+    } else {
+
+        //check if there is a malicious attack from the user 
+        $user = mysqli_real_escape_string($conn, $_POST['username']);
+        $recipe = mysqli_real_escape_string($conn, $_POST['recipeName']);
+        $ingridients = mysqli_real_escape_string($conn, $_POST['ingridients']);
+        $process = mysqli_real_escape_string($conn, $_POST['process']);
+
+        //create an sql query
+        $query = "INSERT INTO recipes(chef,name,ingridents,process) VALUES ('$user','$recipe','$ingridients','$process')";
+
+        if (mysqli_query($conn, $query)) {
+            header('Location: index.php');
+        } else {
+            echo 'query error' . mysqli_error($conn);
+        }
+    }
 };
 ?>
 
@@ -70,14 +66,14 @@ if (array_filter($errors)){
 
         <div class="m-4 d-flex flex-column">
             <label>Chef Creator:</label>
-            <input type='text' name="username" value="<?php echo htmlspecialchars($user)?>"> </input>
+            <input type='text' name="username" value="<?php echo htmlspecialchars($user) ?>"> </input>
             <div class="text-danger">
                 <?php echo $errors['user'] ?>
             </div>
         </div>
         <div class="m-4 d-flex flex-column">
             <label>Recipe Name:</label>
-            <input type='text' name="recipeName" value="<?php echo htmlspecialchars($recipe)?>"> </input>
+            <input type='text' name="recipeName" value="<?php echo htmlspecialchars($recipe) ?>"> </input>
             <div class="text-danger">
                 <?php echo $errors['recipe'] ?>
             </div>
@@ -86,12 +82,12 @@ if (array_filter($errors)){
             <label>Ingridients:</label>
             <input type='text' name="ingridients" value="<?php echo htmlspecialchars($ingridients) ?>"></input>
             <div class="text-danger">
-                <?php echo $errors['ingridients']?>
+                <?php echo $errors['ingridients'] ?>
             </div>
         </div>
         <div class="m-4 d-flex flex-column">
             <label>Process:</label>
-            <textarea name="process"> <?php echo htmlspecialchars($process)?> </textarea>
+            <textarea name="process"> <?php echo htmlspecialchars($process) ?> </textarea>
             <div class="text-danger">
                 <?php echo $errors['process'] ?>
             </div>
@@ -99,7 +95,7 @@ if (array_filter($errors)){
         <button type="submit" class="btn btn-primary btn-block  m-4 mb-4" name="submit">Send</button>
     </form>
 </div>
-<?php 
+<?php
 
 ?>
 <?php include("templates/footer.php") ?>

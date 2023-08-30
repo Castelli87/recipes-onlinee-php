@@ -5,7 +5,7 @@ if (!$conn) {
     echo 'Connection error' .  mysqli_connect_error();
 }
 //create the query 
-$query = 'SELECT name, chef, ingridents FROM recipes';
+$query = 'SELECT id,name, chef, ingridents FROM recipes';
 
 // use the query created at that connection 
 $result = mysqli_query($conn, $query);
@@ -42,7 +42,7 @@ mysqli_close($conn);
                     </ul>
                 </div>
                 <div class='m-3 text-end'>
-                    <a href="#" class="btn btn-primary">More Info</a>
+                    <a href="singleRecipe.php?id= <?php echo $recipe['id'] ?>" class="btn btn-primary">More Info</a>
                 </div>
 
             </div>
