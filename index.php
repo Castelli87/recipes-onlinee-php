@@ -29,29 +29,30 @@ mysqli_close($conn);
 <section class="">
     <div class="row m-4">
         <?php foreach ($recipes as $recipe) : ?>
-            <div class="col-sm-6 mb-3 mb-sm-0 ">
-                <div class="card h-100">
-                    <div class="card-header"><?php echo htmlspecialchars($recipe['name']) ?></div>
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($recipe['chef']) ?></h5>
-                        <!-- <p class="card-text"><?php echo htmlspecialchars( $recipe['ingridents'] )?></p> -->
-                        <ul>
-                            <?php foreach (explode(',', $recipe['ingridents']) as $ing) : ; ?>
-                                <li><?php echo htmlspecialchars($ing) ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                    <div class='m-3 text-end'>
-                        <a href="#" class="btn btn-primary">More Info</a>
-                    </div>
-
+        <div class="col-sm-6 mb-3">
+            <div class="card  h-100">
+                <div class=" card-header"><?php echo htmlspecialchars($recipe['name']) ?></div>
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo htmlspecialchars($recipe['chef']) ?></h5>
+                    <!-- <p class="card-text"><?php echo htmlspecialchars( $recipe['ingridents'] )?></p> -->
+                    <ul>
+                        <?php foreach (explode(',', $recipe['ingridents']) as $ing) : ; ?>
+                        <li><?php echo htmlspecialchars($ing) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
+                <div class='m-3 text-end'>
+                    <a href="#" class="btn btn-primary">More Info</a>
+                </div>
+
             </div>
+        </div>
         <?php endforeach; ?>
     </div>
 </section>
 
-<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
 </script>
 <?php include("templates/footer.php") ?>
 
