@@ -1,9 +1,10 @@
 <?php
 // create the connection 
-$conn =  mysqli_connect('localhost', 'Davide', '12345', 'recipes_pro');
-if (!$conn) {
-    echo 'Connection error' .  mysqli_connect_error();
-}
+// $conn =  mysqli_connect('localhost', 'Davide', '12345', 'recipes_pro');
+// if (!$conn) {
+//     echo 'Connection error' .  mysqli_connect_error();
+// }
+include('config/connection.php');
 //create the query 
 $query = 'SELECT id,name, chef, ingridents FROM recipes';
 
